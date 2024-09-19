@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this lab you will practice how to use the MySQL `SELECT` statement which will be extremely useful in your future work as a data analyst/scientist/engineer. **You will use the `publications` database**. Here is the [link to download the database file](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/data-static/data/module-1/publications.sql.zip). Use your database management application to query `publications`.
+In this lab you will practice how to use the MySQL `SELECT` statement which will be extremely useful in your future work as a data analyst/scientist/engineer. **You will use the `pubs` database** you can find in the data folder. Use your database management application to query `publications`.
 
 You will create a `solutions.sql` file in the `your-code` directory to record your solutions to all challenges.
 
