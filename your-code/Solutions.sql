@@ -71,7 +71,7 @@ SELECT
 	authors.au_id AS "AUTHOR ID",
 	au_lname AS "LAST NAME",
 	au_fname AS "FIRST NAME",
-    COUNT(DISTINCT sales.qty) AS "TITLE COUNT"
+    SUM(sales.qty) AS "TITLE COUNT"
 FROM pubs.authors
 LEFT JOIN
 pubs.titleauthor
@@ -84,7 +84,7 @@ pubs.sales
 ON titles.title_id = sales.title_id
 WHERE titles.title IS NOT NULL
 GROUP BY 1,2,3
-ORDER BY COUNT(DISTINCT sales.qty) DESC
+ORDER BY SUM(sales.qty) DESC
 LIMIT 3
 ;
 
@@ -93,7 +93,7 @@ SELECT
 	authors.au_id AS "AUTHOR ID",
 	au_lname AS "LAST NAME",
 	au_fname AS "FIRST NAME",
-    COUNT(DISTINCT sales.qty) AS "TITLE COUNT"
+    COALESCE(SUM(sales.qty), 0) AS "TITLE COUNT"
 FROM pubs.authors
 LEFT JOIN
 pubs.titleauthor
@@ -105,6 +105,6 @@ LEFT JOIN
 pubs.sales
 ON titles.title_id = sales.title_id
 GROUP BY 1,2,3
-ORDER BY COUNT(DISTINCT sales.qty) DESC
+ORDER BY COALESCE(SUM(sales.qty), 0) DESC
 ;
 
